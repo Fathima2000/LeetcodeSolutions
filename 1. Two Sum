@@ -1,0 +1,21 @@
+https://leetcode.com/problems/two-sum/
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int arr[] = new int[2];
+        Map<Integer,Integer> m = new HashMap<>();
+        for(int i=0;i<nums.length;i++)
+            m.put(nums[i],i);
+        for(int i=0;i<nums.length;i++){
+            if(m.containsKey(target-nums[i]) && i!=m.get(target-nums[i])){
+                arr[0] = i;
+                arr[1] = m.get(target-nums[i]);
+                break;
+            }
+        }
+        return arr;
+    }
+}
+
+//Map -> 2:1   7:2    11:3   15:4
+//sum-cur present in map & not same index as cur ele
