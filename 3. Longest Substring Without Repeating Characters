@@ -1,0 +1,58 @@
+https://leetcode.com/problems/longest-substring-without-repeating-characters/
+
+O(n) slon
+class Solution {
+    public int lengthOfLongestSubstring(String str) {
+        String test = "";
+        int maxLength = -1;
+ 
+        // Return zero if string is empty
+        if (str.isEmpty()) {
+            return 0;
+        }
+        // Return one if string length is one
+        else if (str.length() == 1) {
+            return 1;
+        }
+        for (char c : str.toCharArray()) {
+            String current = String.valueOf(c);
+ 
+            // If string already contains the character
+            // Then substring after repeating character
+            if (test.contains(current)) {
+                test = test.substring(test.indexOf(current)
+                                      + 1);
+            }
+            test = test + String.valueOf(c);
+            maxLength = Math.max(test.length(), maxLength);
+        }
+ 
+        return maxLength;
+    }
+}
+
+**************************************************************************************************************************************************
+O(n) O(n) solution
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        if(s.length()==0)   return 0;
+        int vis[] = new int[256];
+        int cur_len = 1, max_len = 1, prev_index;
+        Arrays.fill(vis,-1);
+        vis[s.charAt(0)] = 0;
+        for(int i=1;i<s.length();i++){
+            prev_index = vis[s.charAt(i)];
+            if(prev_index==-1 || (i-cur_len)>prev_index)    //geeksforgeeks -> applies on 2nd g
+                cur_len++;
+            else{
+                if(cur_len>max_len)
+                    max_len = cur_len;
+                cur_len = i-prev_index;
+            }
+            vis[s.charAt(i)] = i;            
+        }
+        if(cur_len>max_len)
+                    max_len = cur_len;
+        return max_len;
+    }
+}
