@@ -18,4 +18,8 @@ class Solution {
 }
 
 //Map -> 2:1   7:2    11:3   15:4
+//Set cant be used, it will not give index, which will be used to verify we are not using same ele twice & index will be helpful get position of 2 elems
 //sum-cur present in map & not same index as cur ele
+
+TC - O(n)
+AS - O(n)
