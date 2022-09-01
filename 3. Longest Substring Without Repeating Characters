@@ -1,6 +1,6 @@
 https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
-O(n) slon
+
 class Solution {
     public int lengthOfLongestSubstring(String str) {
         String test = "";
@@ -31,8 +31,15 @@ class Solution {
     }
 }
 
+//Logic
+1) Traverse through str and if test string contains curChar -> then keep substring after repeating character 
+2) Add curChar to test string
+3) Calculate maxLength(test string, maxLength)
+
+TC - O(n)
+
 **************************************************************************************************************************************************
-O(n) O(n) solution
+
 class Solution {
     public int lengthOfLongestSubstring(String s) {
         if(s.length()==0)   return 0;
@@ -56,3 +63,16 @@ class Solution {
         return max_len;
     }
 }
+
+//Logic
+1) Have visited arr of 256 size filled with -1 to keep track of indexes of already visited charactrers
+2) Mark first char as visited
+3) Traverse string from second char
+    a) Mark its prev_index
+    b) If prev_index is -1 or curIndex-curLength>prev_index -> do cur_len++;
+        else store maxLength and cur_len=curIndex-prev_index
+    c) mark is as visited with cur index
+4) store maxLength and return
+
+TC - O(n)
+AS - O(256) - not counted bcoz constant(256)
