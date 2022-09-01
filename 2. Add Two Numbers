@@ -23,5 +23,12 @@ class Solution {
     }
 }
 
+//Logic
+1) sum=0, carry=0, res ll, tmp ll to make note of head of res ll
+2) Traverse l1 & l2, add carry+l1.val+l2.val if l1 & l2 vals r not null
+3) Check for carry
+4) add sum%10 in res
+5) if l1&l2 are not null, goto next ele
+
 TC-o(MAX(l1,l2))
 AS-O(max(l1,l2)) - res list
