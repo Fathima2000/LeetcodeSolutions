@@ -21,5 +21,10 @@ class Solution {
 //Set cant be used, it will not give index, which will be used to verify we are not using same ele twice & index will be helpful get position of 2 elems
 //sum-cur present in map & not same index as cur ele
 
+//Logic
+1) Traverse arr & add it in map<ele,index>
+2) Traverse arr & check if target-curEle key is in map && that key's index is not qual to curEle
+3) If found, make note of 2 indexs & break;
+
 TC - O(n)
 AS - O(n)
