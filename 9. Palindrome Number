@@ -1,0 +1,19 @@
+class Solution {
+    public boolean isPalindrome(int x) {
+        if(x<0 || (x%10==0 && x!=0))    //Second condition - 0,010....
+            return false;
+        int reverseNumber=0;
+        while(x>reverseNumber){
+            reverseNumber=reverseNumber*10+x%10;
+            x/=10;
+        }
+        //x==reverseNumber/10 -> for odd numbers. Eg=12321, x=12 & reverseNumber=123
+        return x==reverseNumber || x==reverseNumber/10;
+        
+    }
+}
+
+
+//Convert number to string - extra non-constant space for creating the string .. Number doesnot take space
+//Revert the whole no.  -  if the reversed number is larger than \text{int.MAX}int.MAX, we will hit integer overflow problem.
+//TO avoid overflow, we will only rever last half part of number
